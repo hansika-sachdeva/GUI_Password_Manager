@@ -55,14 +55,13 @@ def save_pass():
                 for (index, row) in rows.iterrows():
                     if row["Email/Username"] == email:
                         duplicate_entry = True
-                        row_index = index
                         old_password = row["Password"]
                         ans = messagebox.askyesno(title="Change Password?",
                                                   message=f'You have already saved a password for this '
                                                           f'website and username. Do you want to change it? \n\n'
                                                           f'Old Password: {old_password} \nNew Password: {password}')
                         if ans:
-                            df.at[row_index, 'Password'] = password
+                            df.at[index, 'Password'] = password
                             df.to_csv("password_data.csv", mode="w", index=False)
                             clear_pass()
                             clear_website()
