@@ -28,6 +28,7 @@ def copy_pass():
     pyperclip.copy(password)
 
 
+
 def save_pass():
     password = pass_entry.get()
     website = website_entry.get()
@@ -70,6 +71,7 @@ def save_pass():
                 new_df.to_csv("password_data.csv", mode="a", header=False, index=False)
                 clear_pass()
                 clear_website()
+
 
 
 def find_pass():
